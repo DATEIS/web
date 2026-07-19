@@ -155,7 +155,7 @@ jobs:
         run: |
           mkdir -p deploy_preview
           cp index.html deploy_preview/
-          cp style.css deploy_preview/
+          cp -r styles deploy_preview/
           cp -r js deploy_preview/
           cp -r fonts deploy_preview/
           cp -r img deploy_preview/
