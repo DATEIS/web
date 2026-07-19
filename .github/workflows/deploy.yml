@@ -90,7 +90,7 @@ jobs:
         run: |
           # Отправляем CSS на валидатор W3C
           curl -s -H "Content-Type: text/css; charset=utf-8" \
-               --data-binary @style.css \
+               --data-binary @styles/*.css \
                "https://jigsaw.w3.org/css-validator/validator?output=json&text=true" \
                -o validation-result.json
 
