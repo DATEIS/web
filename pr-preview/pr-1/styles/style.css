@@ -1,0 +1,86 @@
+:root {
+  --bg-color: #ffffff;
+  --primary: #d3468f;
+  --alternate: #151515;
+  --alternate-0: #000000;
+  --third: #f2f3f5;
+  --dark: #6a2348;
+  --dark-2: #3a0a0a;
+}
+
+[data-theme="dark"] {
+  --bg-color: #ffffff;
+  --primary: #d3468f;
+  --alternate: #151515;
+  --third: #f2f3f5;
+  --dark: #6a2348;
+  --dark-2: #3a0a0a;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Manrope";
+  src: url(/fonts/Manrope-Regular.ttf);
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Manrope";
+  src: url(/fonts/Manrope-ExtraBold.ttf);
+  font-weight: 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Manrope";
+  src: url(/fonts/Manrope-Bold.ttf);
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Manrope";
+  src: url(/fonts/Manrope-SemiBold.ttf);
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Manrope";
+  src: url(/fonts/Manrope-Medium.ttf);
+  font-weight: 500;
+  font-display: swap;
+}
+
+body {
+  margin: 0;
+  font-family: "Manrope";
+  font-weight: 400;
+  color: var(--primary);
+}
+
+a {
+  font-family: "Manrope";
+}
+
+span.disappearing svg {
+  animation: swipe 1.5s ease-in infinite;
+}
+
+@keyframes swipe {
+  0% {
+    transform: translateY(0px);
+  }
+  37.5% {
+    transform: translateY(7px);
+  }
+  75% {
+    transform: translateY(0px);
+  }
+}
