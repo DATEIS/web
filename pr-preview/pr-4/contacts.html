@@ -379,7 +379,7 @@
         padding-left: 15px;
         padding-right: 15px;
         padding-bottom: 15px;
-        height: 100%;
+        height: 70px;
         margin-bottom: 10px;
         transition: 0.3s;
       }
@@ -400,7 +400,7 @@
       }
 
       details[open] {
-        height: 100%;
+        height: 220px;
         max-height: 220px;
         overflow-y: auto;
       }
@@ -562,6 +562,21 @@
         color: var(--alternate-0-70);
         font-weight: 500;
         margin-bottom: 5px;
+      }
+
+      a.contact--link {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      button.feedback--send {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+      }
+
+      .status--list li {
+        padding-right: 27px;
       }
 
       main {
@@ -846,7 +861,7 @@
             Answers to the most common questions about Dateis.
           </p>
 
-          <details>
+          <details open>
             <summary>
               This is a question that is often asked.
               <span></span>
@@ -952,5 +967,6 @@
         </section>
       </div>
     </main>
+    <script src="/js/contacts.js" defer async></script>
   </body>
 </html>
