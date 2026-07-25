@@ -84,7 +84,7 @@
         width: 18px;
       }
 
-      input[typ="search"]::-webkit-search-decoration,
+      input[type="search"]::-webkit-search-decoration,
       input[type="search"]::-webkit-search-cancel-button,
       input[type="search"]::-webkit-search-results-button,
       input[type="search"]::-webkit-search-results-decoration {
@@ -146,7 +146,6 @@
         color: #d3468f !important;
       }
 
-      /* Обычный тег */
       .tag-link {
         background-color: #f2f3f5;
         border: 1px solid #d8d8d8;
@@ -163,7 +162,6 @@
         white-space: nowrap;
       }
 
-      /* Обертка для тегов */
       .tags-nav {
         contain: layout paint;
         margin-top: 16px;
@@ -174,7 +172,6 @@
         display: inline-block;
       }
 
-      /* Горизонтальный список с прокруткой */
       .tags-list {
         display: flex;
         gap: 8px;
@@ -203,11 +200,6 @@
         width: 100%;
       }
 
-      .blog-sectin {
-        margin-top: 30px;
-      }
-
-      /* Карточка статьи */
       .blog-card {
         background-color: #f8f9fa;
         border-radius: 10px;
@@ -294,7 +286,6 @@
     </header>
 
     <main>
-      <!-- Форма поиска -->
       <form class="search--form" action="/search" method="get" role="search">
         <label class="search--wrapper">
           <input
@@ -306,7 +297,7 @@
           />
           <svg
             class="search--icon"
-            xmlns="http://w3.org"
+            xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 27 27"
             fill="none"
             stroke="currentColor"
@@ -320,8 +311,7 @@
         </label>
       </form>
 
-      <!-- Горизонтальные теги-фильтры -->
-      <nav class="tags-nav" aria-label="Категории поиска">
+      <nav class="tags-nav" aria-label="Search categories">
         <ul class="tags-list">
           <li class="tags-item">
             <a href="/guide" class="tag-link tag-link--active">Guide</a>
@@ -333,20 +323,19 @@
         </ul>
       </nav>
 
-      <section class="blog-sectin">
-        <!-- Первая карточка -->
+      <div class="blog-section">
         <div class="blog--container">
           <article class="blog-card">
             <a href="#" class="blog-card__image-link">
               <img
                 src="img/blog--img.png"
-                alt="Превью статьи Title blog"
+                alt="Article preview Title blog"
                 class="blog-card__image"
                 loading="lazy"
               />
             </a>
             <div class="blog-card__content">
-              <h3 class="blog-card__title"><a href="#">Title blog</a></h3>
+              <h1 class="blog-card__title"><a href="#">Title blog</a></h1>
               <p class="blog-card__text">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               </p>
@@ -360,19 +349,18 @@
           </article>
         </div>
 
-        <!-- Вторая карточка -->
         <div class="blog--container">
           <article class="blog-card">
             <a href="#" class="blog-card__image-link">
               <img
                 src="img/blog--img.png"
-                alt="Превью статьи Title blog"
+                alt="Article preview Title blog"
                 class="blog-card__image"
                 loading="lazy"
               />
             </a>
             <div class="blog-card__content">
-              <h3 class="blog-card__title"><a href="#">Title blog</a></h3>
+              <h2 class="blog-card__title"><a href="#">Title blog</a></h2>
               <p class="blog-card__text">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               </p>
@@ -385,7 +373,7 @@
             </div>
           </article>
         </div>
-      </section>
+      </div>
     </main>
   </body>
 </html>
