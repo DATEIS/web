@@ -97,7 +97,7 @@ span.disappearing svg {
 }
 
 .checkbox--block:after {
-  background: url(/img/check.svg);
+  background: url(img/check.svg);
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: contain;
