@@ -8,6 +8,8 @@
   --dark-2: #3a0a0a;
   --alternate-0-20: rgba(0, 0, 0, 0.2);
   --alternate-0-70: rgba(0, 0, 0, 0.7);
+  --hover-third: #ebebeb;
+  --hover-primary: #d3468f4d;
 }
 
 [data-theme="dark"] {
@@ -19,6 +21,8 @@
   --dark-2: #3a0a0a;
   --alternate-0-20: rgba(0, 0, 0, 0.2);
   --alternate-0-70: rgba(0, 0, 0, 0.7);
+  --hover-third: #ebebeb;
+  --hover-primary: #d3468f4d;
 }
 
 *,
@@ -90,4 +94,44 @@ span.disappearing svg {
   75% {
     transform: translateY(0px);
   }
+}
+
+.checkbox--block:after {
+  background: url(/img/check.svg);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 15px;
+  height: 15px;
+}
+
+.checkbox--block input {
+  transition: 0.3s;
+}
+
+.checkbox--block {
+  cursor: pointer;
+}
+
+.checkbox--block input:checked {
+  background: var(--primary);
+}
+
+.input--block,
+.textarea--block {
+  transition: 0.3s;
+}
+
+@media (min-width: 1024px) {
+  .input--block:hover,
+  .textarea--block:hover {
+    background: var(--hover-third);
+    border-color: var(--hover-primary);
+  }
+}
+
+.input--block:has(input:focus),
+.textarea--block:has(textarea:focus) {
+  background: var(--third);
+  border-color: var(--primary);
 }

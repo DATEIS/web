@@ -313,7 +313,6 @@
 
       button.feedback--send {
         width: 100%;
-        max-width: 320px;
         margin-top: 12px;
         height: 48px;
         background: var(--alternate);
@@ -363,6 +362,7 @@
         align-items: center;
         justify-content: space-between;
         gap: 40px;
+        min-height: 70px;
       }
 
       details > summary:first-of-type {
@@ -382,6 +382,10 @@
         height: 70px;
         margin-bottom: 10px;
         transition: 0.3s;
+      }
+
+      details::-webkit-scrollbar {
+        display: none;
       }
 
       details p {
