@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DATEIS</title>
+
+    <style>
+      *,
+      *:after,
+      *:before {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        overflow-x: hidden;
+      }
+
+      header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+      }
+
+      .container {
+        margin: 0 auto;
+        width: 100%;
+        max-width: calc(100% - 40px);
+      }
+
+      .header__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 25px;
+        padding-bottom: 25px;
+      }
+
+      p,
+      a {
+        margin: 0;
+        text-decoration: none;
+      }
+
+      a.header--title {
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        font-weight: 800;
+        font-size: 2rem;
+        text-transform: uppercase;
+      }
+
+      .header__burger {
+        background: var(--third);
+        width: 42px;
+        height: 42px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .header__burger span {
+        display: block;
+        width: 18px;
+        height: 2px;
+        border-radius: 5px;
+        background: var(--alternate);
+        position: relative;
+      }
+
+      .header__burger span:after {
+        position: absolute;
+        content: "";
+        top: -6px;
+        width: 18px;
+        height: 2px;
+        border-radius: 5px;
+        background: var(--alternate);
+      }
+
+      .header__burger span:before {
+        position: absolute;
+        content: "";
+        top: 6px;
+        width: 18px;
+        height: 2px;
+        border-radius: 5px;
+        background: var(--alternate);
+      }
+
+      span.last--update {
+        display: flex;
+        margin-top: 90px;
+        color: var(--alternate-0);
+        opacity: 50%;
+        gap: 5px;
+        font-weight: 500;
+        font-size: 1rem;
+      }
+
+      h1 {
+        margin: 0;
+        margin-top: 3px;
+        margin-bottom: 26px;
+        color: var(--alternate-0);
+        font-weight: 700;
+        font-size: 2rem;
+      }
+
+      ol.loyal,
+      ol.loyal ol {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        color: var(--alternate-0);
+      }
+
+      ol.loyal > li {
+        font-weight: 700;
+        font-size: 1.25rem;
+      }
+
+      ol.loyal {
+        counter-reset: level1;
+        list-style-type: none;
+      }
+
+      ol.loyal > li {
+        counter-increment: level1;
+        counter-reset: level2;
+        margin-top: 30px;
+      }
+
+      ol.loyal > li::before {
+        content: counter(level1) ". ";
+        font-weight: bold;
+      }
+
+      ol.loyal > li > ol {
+        counter-reset: level2;
+        list-style-type: none;
+        font-size: 1.125rem;
+      }
+
+      ol.loyal > li > ol > li {
+        counter-increment: level2;
+        counter-reset: level3;
+        margin-top: 20px;
+      }
+
+      ol.loyal > li > ol > li::before {
+        content: counter(level1) "." counter(level2) " ";
+      }
+
+      ol.loyal > li > ol > li > ol.alpha {
+        counter-reset: level3;
+        list-style-type: none;
+      }
+
+      ol.loyal > li > ol > li > ol.alpha > li {
+        counter-increment: level3;
+      }
+
+      ol.loyal > li > ol > li > ol.alpha > li::before {
+        content: counter(level3, upper-alpha) ") ";
+        color: var(--alternate-0);
+      }
+
+      ol.loyal p {
+        font-size: 1rem;
+        color: var(--alternate-0);
+        opacity: 80%;
+        font-weight: 400;
+        margin-top: 7px;
+      }
+
+      ol.alpha li {
+        display: flex;
+        gap: 5px;
+        margin-top: 5px;
+      }
+
+      ol.alpha p {
+        margin-top: 1px;
+      }
+
+      main {
+        padding-bottom: 60px;
+      }
+    </style>
+
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header__inner">
+          <div class="header__logo">
+            <a href="/" class="header--title">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="26"
+                height="28"
+                fill="none"
+              >
+                <path
+                  fill="#d3468f"
+                  d="M19.494 1.915a2.583 2.583 0 0 0-4.99 1.338L20.52 25.71a2.583 2.583 0 0 0 4.99-1.337zM13.327 14.254l.72 2.932 2.931.72c.585.143.585.974 0 1.118l-2.931.72-.72 2.932c-.143.584-.975.584-1.119 0l-.72-2.932-2.931-.72c-.584-.143-.584-.974 0-1.118l2.932-.72.72-2.932c.143-.584.974-.584 1.118 0M.089 24.446a2.583 2.583 0 1 0 4.99 1.337l6.018-22.457a2.583 2.583 0 1 0-4.99-1.338z"
+                />
+              </svg>
+              <b>Dateis</b>
+            </a>
+          </div>
+
+          <div class="header__burger">
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <span class="last--update">
+          Last update <time datetime="2026-07-20">20.07.2026</time>
+        </span>
+
+        <h1>Document name</h1>
+
+        <ol class="loyal">
+          <li>
+            Some important text
+            <ol>
+              <li>
+                Some important text
+                <ol class="alpha">
+                  <li><p>Some important text</p></li>
+                  <li><p>Some important text</p></li>
+                  <li><p>Some important text</p></li>
+                </ol>
+              </li>
+              <li>
+                Some important text
+                <p>
+                  text text text text text text text text text text text text
+                  text text text text text text text text text text text text
+                  text text text text text text text text text text text text
+                  text text text text text text text text
+                </p>
+              </li>
+            </ol>
+          </li>
+          <li>
+            Some important text
+            <ol>
+              <li>
+                Some important text
+                <ol class="alpha">
+                  <li><p>Some important text</p></li>
+                  <li><p>Some important text</p></li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </div>
+    </main>
+  </body>
+</html>
