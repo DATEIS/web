@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Dateis Blog</title>
+    <title>DATEIS Blog Blog</title>
     <link href="styles/style.css" rel="stylesheet" />
 
     <style>
@@ -99,10 +99,10 @@
 
       .search--wrapper {
         align-items: center;
-        background-color: #f1f3f5;
+        background-color: var(--third);
         border: 1px solid transparent;
         border-radius: 100px;
-        border-color: #d8d8d8;
+        border-color: color-mix(in srgb, var(--alternate-0) 15.5%, transparent);
         cursor: text;
         display: flex;
         padding: 0 20px;
@@ -114,15 +114,16 @@
       }
 
       .search--wrapper:focus-within {
-        background-color: #ffffff;
-        border-color: #ced4da;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        background-color: var(--bg-color);
+        border-color: color-mix(in srgb, var(--alternate-0) 21.5%, transparent);
+        box-shadow: 0 4px 12px
+          color-mix(in srgb, var(--alternate-0) 3%, transparent);
       }
 
       .search--input {
         background: transparent;
         border: none;
-        color: #000000;
+        color: var(--alternate-0);
         font-size: 1.125rem;
         height: 48px;
         outline: none;
@@ -130,27 +131,31 @@
       }
 
       .search--input::placeholder {
-        color: #495057;
+        color: color-mix(in srgb, var(--alternate-0) 71.5%, transparent);
       }
 
       .search--icon {
-        color: #000000;
+        color: var(--alternate-0);
         flex-shrink: 0;
         height: 22px;
         width: 22px;
       }
 
       .tag-link--active {
-        background-color: #fff0f6 !important;
-        border-color: #d3468f !important;
-        color: #d3468f !important;
+        background-color: color-mix(
+          in srgb,
+          var(--primary) 6%,
+          transparent
+        ) !important;
+        border-color: var(--primary) !important;
+        color: var(--primary) !important;
       }
 
       .tag-link {
-        background-color: #f2f3f5;
+        background-color: var(--third);
         border: 1px solid #d8d8d8;
         border-radius: 100px;
-        color: #000000cc;
+        color: var(--alternate-0);
         display: inline-block;
         font-size: 1rem;
         font-weight: 500;
@@ -160,6 +165,7 @@
           border-color 0.15s ease,
           color 0.15s ease;
         white-space: nowrap;
+        cursor: pointer;
       }
 
       .tags-nav {
@@ -178,7 +184,6 @@
         list-style: none;
         margin: 0;
         overflow-x: auto;
-        padding-bottom: 4px;
         padding-left: 20px;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
@@ -196,12 +201,17 @@
         width: 100%;
       }
 
+      .blog--container:first-child {
+        margin: 0px 20px 0px 20px;
+      }
+
       .blog-section {
+        margin-top: 30px;
         width: 100%;
       }
 
       .blog-card {
-        background-color: #f8f9fa;
+        background-color: var(--third);
         border-radius: 10px;
         display: flex;
         flex-direction: column;
@@ -233,27 +243,28 @@
       }
 
       .blog-card__text {
-        color: #495057;
+        color: color-mix(in srgb, var(--alternate-0) 70%, transparent);
         font-size: 1rem;
         line-height: 1.4;
         margin: 8px 0 0 0;
       }
 
       .blog-card__title {
-        font-size: 20px;
+        font-size: 1.25rem;
         font-weight: 700;
         margin: 0;
       }
 
       .blog-card__title a {
-        color: #000000;
+        color: var(--alternate-0);
         text-decoration: none;
       }
 
       .blog-card__time,
       .blog-card__date {
-        color: #868e96;
-        font-size: 14px;
+        color: color-mix(in srgb, var(--alternate-0) 50%, transparent);
+
+        font-size: 0.825rem;
       }
     </style>
   </head>
@@ -306,7 +317,7 @@
             stroke-linejoin="round"
           >
             <circle cx="11" cy="11" r="8"></circle>
-            <line x1="25" y1="25" x2="16.65" y2="16.65"></line>
+            <line x1="24" y1="24" x2="16.65" y2="16.65"></line>
           </svg>
         </label>
       </form>
@@ -314,12 +325,12 @@
       <nav class="tags-nav" aria-label="Search categories">
         <ul class="tags-list">
           <li class="tags-item">
-            <a href="/guide" class="tag-link tag-link--active">Guide</a>
+            <a href="#" class="tag-link tag-link--active">Guide</a>
           </li>
-          <li class="tags-item"><a href="/news" class="tag-link">News</a></li>
-          <li class="tags-item"><a href="/news-2" class="tag-link">News</a></li>
-          <li class="tags-item"><a href="/news-3" class="tag-link">News</a></li>
-          <li class="tags-item"><a href="/news-4" class="tag-link">News</a></li>
+          <li class="tags-item"><a href="#" class="tag-link">Comments</a></li>
+          <li class="tags-item"><a href="#" class="tag-link">News</a></li>
+          <li class="tags-item"><a href="#" class="tag-link">News</a></li>
+          <li class="tags-item"><a href="#" class="tag-link">News</a></li>
         </ul>
       </nav>
 
@@ -375,5 +386,18 @@
         </div>
       </div>
     </main>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const tags = document.querySelectorAll(".tag-link");
+
+        tags.forEach((tag) => {
+          tag.addEventListener("click", function (event) {
+            event.preventDefault();
+            tags.forEach((t) => t.classList.remove("tag-link--active"));
+            this.classList.add("tag-link--active");
+          });
+        });
+      });
+    </script>
   </body>
 </html>
