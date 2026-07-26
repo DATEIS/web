@@ -113,11 +113,14 @@
         will-change: background-color, border-color;
       }
 
+      .search--wrapper:hover {
+        background-color: #d8d8d8;
+        border: 1px solid #d8d8d8;
+      }
+
       .search--wrapper:focus-within {
-        background-color: var(--bg-color);
-        border-color: color-mix(in srgb, var(--alternate-0) 21.5%, transparent);
-        box-shadow: 0 4px 12px
-          color-mix(in srgb, var(--alternate-0) 3%, transparent);
+        background-color: var(--third);
+        border-color: var(--primary);
       }
 
       .search--input {
@@ -132,6 +135,10 @@
 
       .search--input::placeholder {
         color: color-mix(in srgb, var(--alternate-0) 71.5%, transparent);
+      }
+
+      .search--wrapper:focus-within .search--input::placeholder {
+        opacity: 0;
       }
 
       .search--icon {
