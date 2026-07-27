@@ -1,441 +1,407 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>DATEIS Blog</title>
     <link href="styles/style.css" rel="stylesheet" />
 
     <style>
-      a {
-        margin: 0;
-        text-decoration: none;
-      }
-
-      a.header--title {
-        align-items: center;
-        color: var(--primary);
-        display: flex;
-        font-size: 2rem;
-        font-weight: 800;
-        gap: 7px;
-        text-transform: uppercase;
-      }
-
-      .container {
-        display: flex;
-        flex-direction: column;
-        margin: 0 auto;
-        max-width: calc(100% - 40px);
-        width: 100%;
-      }
-
-      header {
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 100vw;
-      }
-
-      .header__inner {
-        align-items: center;
-        display: flex;
-        justify-content: space-between;
-        padding-bottom: 20px;
-        padding-top: 25px;
-      }
-
-      .header__burger {
-        align-items: center;
-        background: var(--third);
-        border-radius: 14px;
-        display: flex;
-        height: 46px;
-        justify-content: center;
-        width: 48px;
-      }
-
-      .header__burger span {
-        background: var(--alternate);
-        border-radius: 5px;
-        display: block;
-        height: 2px;
-        position: relative;
-        width: 18px;
-      }
-
-      .header__burger span:after {
-        background: var(--alternate);
-        border-radius: 5px;
-        content: "";
-        height: 2px;
-        position: absolute;
-        top: -6px;
-        width: 18px;
-      }
-
-      .header__burger span:before {
-        background: var(--alternate);
-        border-radius: 5px;
-        content: "";
-        height: 2px;
-        position: absolute;
-        top: 6px;
-        width: 18px;
-      }
-
-      input[type="search"]::-webkit-search-decoration,
-      input[type="search"]::-webkit-search-cancel-button,
-      input[type="search"]::-webkit-search-results-button,
-      input[type="search"]::-webkit-search-results-decoration {
-        display: none;
-      }
-
-      .search--form {
-        contain: layout paint;
-        width: 100%;
-        padding: 90px 20px 0px 20px;
-      }
-
-      .search--wrapper {
-        align-items: center;
-        background-color: var(--third);
-        border: 1px solid transparent;
-        border-radius: 100px;
-        border-color: color-mix(in srgb, var(--alternate-0) 15.5%, transparent);
-        cursor: text;
-        display: flex;
-        padding: 0 20px;
-        position: relative;
-        transition: all 0.2s ease;
-        will-change: background-color, border-color;
-      }
-
-      @media (hover: hover) {
-        .search--wrapper:hover {
-          background-color: #d8d8d8;
-          border: 1px solid #d8d8d8;
+        a {
+            margin: 0;
+            text-decoration: none;
         }
-      }
 
-      @media (hover: none) {
-        .search--wrapper:active {
-          background-color: #d8d8d8;
-          border: 1px solid #d8d8d8;
+        a.header--title {
+            align-items: center;
+            color: var(--primary);
+            display: flex;
+            font-size: 2rem;
+            font-weight: 800;
+            gap: 7px;
+            text-transform: uppercase;
         }
-      }
 
-      .search--wrapper.has-text,
-      .search--wrapper.has-text:focus-within {
-        background-color: var(--third) !important;
-        border-color: var(--primary) !important;
-        color: var(--primary) !important;
-      }
+        .container {
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+            max-width: calc(100% - 40px);
+            width: 100%;
+        }
 
-      .search--wrapper:focus-within {
-        background-color: var(--third);
-        border-color: var(--primary);
-      }
+        header {
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100vw;
+        }
 
-      .search--input {
-        background: transparent;
-        border: none;
-        color: var(--alternate-0);
-        font-size: 1.125rem;
-        height: 48px;
-        outline: none;
-        width: 100%;
-      }
+        .header__inner {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 20px;
+            padding-top: 25px;
+        }
 
-      .search--input::placeholder {
-        color: color-mix(in srgb, var(--alternate-0) 71.5%, transparent);
-      }
+        .header__burger {
+            align-items: center;
+            background: var(--third);
+            border-radius: 14px;
+            display: flex;
+            height: 46px;
+            justify-content: center;
+            width: 48px;
+        }
 
-      .search--wrapper:focus-within .search--input::placeholder {
-        opacity: 0;
-      }
+        .header__burger span {
+            background: var(--alternate);
+            border-radius: 5px;
+            display: block;
+            height: 2px;
+            position: relative;
+            width: 18px;
+        }
 
-      .search--icon {
-        color: var(--alternate-0);
-        flex-shrink: 0;
-        height: 22px;
-        width: 22px;
-      }
+        .header__burger span:after {
+            background: var(--alternate);
+            border-radius: 5px;
+            content: "";
+            height: 2px;
+            position: absolute;
+            top: -6px;
+            width: 18px;
+        }
 
-      .tag-link--active {
-        background-color: color-mix(
-          in srgb,
-          var(--primary) 6%,
-          transparent
-        ) !important;
-        border-color: var(--primary) !important;
-        color: var(--primary) !important;
-      }
+        .header__burger span:before {
+            background: var(--alternate);
+            border-radius: 5px;
+            content: "";
+            height: 2px;
+            position: absolute;
+            top: 6px;
+            width: 18px;
+        }
 
-      .tag-link {
-        background-color: var(--third);
-        border: 1px solid #d8d8d8;
-        border-radius: 100px;
-        color: var(--alternate-0);
-        display: inline-block;
-        font-size: 1rem;
-        font-weight: 500;
-        padding: 9px 25px;
-        transition:
-          background-color 0.15s ease,
-          border-color 0.15s ease,
-          color 0.15s ease;
-        white-space: nowrap;
-        cursor: pointer;
-      }
+        input[type="search"]::-webkit-search-decoration,
+        input[type="search"]::-webkit-search-cancel-button,
+        input[type="search"]::-webkit-search-results-button,
+        input[type="search"]::-webkit-search-results-decoration {
+            display: none;
+        }
 
-      .tags-nav {
-        contain: layout paint;
-        margin-top: 16px;
-        width: 100%;
-      }
+        .search--form {
+            contain: layout paint;
+            width: 100%;
+            padding: 90px 20px 0px 20px;
+        }
 
-      .tags-item {
-        display: inline-block;
-      }
+        .search--wrapper {
+            align-items: center;
+            background-color: var(--third);
+            border: 1px solid transparent;
+            border-radius: 100px;
+            border-color: color-mix(in srgb, var(--alternate-0) 15.5%, transparent);
+            cursor: text;
+            display: flex;
+            padding: 0 20px;
+            position: relative;
+            transition: all 0.2s ease;
+            will-change: background-color, border-color;
+        }
 
-      .tags-list {
-        display: flex;
-        gap: 8px;
-        list-style: none;
-        margin: 0;
-        overflow-x: auto;
-        padding-left: 20px;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-      }
+        @media (hover: hover) {
+            .search--wrapper:hover {
+                background-color: #d8d8d8;
+                border: 1px solid #d8d8d8;
+            }
+        }
 
-      .tags-list::-webkit-scrollbar {
-        display: none;
-      }
+        @media (hover: none) {
+            .search--wrapper:active {
+                background-color: #d8d8d8;
+                border: 1px solid #d8d8d8;
+            }
+        }
 
-      .blog--container {
-        display: flex;
-        flex-direction: column;
-        margin: 15px 20px 0px 20px;
-        max-width: calc(100% - 40px);
-        width: 100%;
-      }
+        .search--wrapper.has-text,
+        .search--wrapper.has-text:focus-within {
+            background-color: var(--third) !important;
+            border-color: var(--primary) !important;
+            color: var(--primary) !important;
+        }
 
-      .blog--container:first-child {
-        margin: 0px 20px 0px 20px;
-      }
+        .search--wrapper:focus-within {
+            background-color: var(--third);
+            border-color: var(--primary);
+        }
 
-      .blog-section {
-        margin-top: 30px;
-        width: 100%;
-      }
+        .search--input {
+            background: transparent;
+            border: none;
+            color: var(--alternate-0);
+            font-size: 1.125rem;
+            height: 48px;
+            outline: none;
+            width: 100%;
+        }
 
-      .blog-card {
-        background-color: var(--third);
-        border-radius: 10px;
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-      }
+        .search--input::placeholder {
+            color: color-mix(in srgb, var(--alternate-0) 71.5%, transparent);
+        }
 
-      .blog-card__content {
-        padding: 20px 20px 20px 24px;
-      }
+        .search--wrapper:focus-within .search--input::placeholder {
+            opacity: 0;
+        }
 
-      .blog-card__image-link {
-        display: block;
-        width: 100%;
-      }
+        .search--icon {
+            color: var(--alternate-0);
+            flex-shrink: 0;
+            height: 22px;
+            width: 22px;
+        }
 
-      .blog-card__image {
-        border-radius: 10px;
-        aspect-ratio: 16 / 9;
-        display: block;
-        object-fit: cover;
-        width: 100%;
-      }
+        .tag-link--active {
+            background-color: color-mix(in srgb,
+                    var(--primary) 6%,
+                    transparent) !important;
+            border-color: var(--primary) !important;
+            color: var(--primary) !important;
+        }
 
-      .blog-card__meta {
-        align-items: center;
-        display: flex;
-        justify-content: space-between;
-        margin-top: 20px;
-      }
+        .tag-link {
+            background-color: var(--third);
+            border: 1px solid #d8d8d8;
+            border-radius: 100px;
+            color: var(--alternate-0);
+            display: inline-block;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 9px 25px;
+            transition:
+                background-color 0.15s ease,
+                border-color 0.15s ease,
+                color 0.15s ease;
+            white-space: nowrap;
+            cursor: pointer;
+        }
 
-      .blog-card__text {
-        color: color-mix(in srgb, var(--alternate-0) 70%, transparent);
-        font-size: 1rem;
-        line-height: 1.4;
-        margin: 8px 0 0 0;
-      }
+        .tags-nav {
+            contain: layout paint;
+            margin-top: 16px;
+            width: 100%;
+        }
 
-      .blog-card__title {
-        font-size: 1.25rem;
-        font-weight: 700;
-        margin: 0;
-      }
+        .tags-item {
+            display: inline-block;
+        }
 
-      .blog-card__title a {
-        color: var(--alternate-0);
-        text-decoration: none;
-      }
+        .tags-list {
+            display: flex;
+            gap: 8px;
+            list-style: none;
+            margin: 0;
+            overflow-x: auto;
+            padding-left: 20px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
 
-      .blog-card__time,
-      .blog-card__date {
-        color: color-mix(in srgb, var(--alternate-0) 50%, transparent);
-        font-size: 0.875rem;
-      }
+        .tags-list::-webkit-scrollbar {
+            display: none;
+        }
+
+        .blog--container {
+            display: flex;
+            flex-direction: column;
+            margin: 15px 20px 0px 20px;
+            max-width: calc(100% - 40px);
+            width: 100%;
+        }
+
+        .blog--container:first-child {
+            margin: 0px 20px 0px 20px;
+        }
+
+        .blog-section {
+            margin-top: 30px;
+            width: 100%;
+        }
+
+        .blog-card {
+            background-color: var(--third);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .blog-card__content {
+            padding: 20px 20px 20px 24px;
+        }
+
+        .blog-card__image-link {
+            display: block;
+            width: 100%;
+        }
+
+        .blog-card__image {
+            border-radius: 10px;
+            aspect-ratio: 16 / 9;
+            display: block;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .blog-card__meta {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .blog-card__text {
+            color: color-mix(in srgb, var(--alternate-0) 70%, transparent);
+            font-size: 1rem;
+            line-height: 1.4;
+            margin: 8px 0 0 0;
+        }
+
+        .blog-card__title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .blog-card__title a {
+            color: var(--alternate-0);
+            text-decoration: none;
+        }
+
+        .blog-card__time,
+        .blog-card__date {
+            color: color-mix(in srgb, var(--alternate-0) 50%, transparent);
+            font-size: 0.875rem;
+        }
     </style>
-  </head>
+</head>
 
-  <body>
+<body>
     <header>
-      <div class="container">
-        <div class="header__inner">
-          <div class="header__logo">
-            <a href="/" class="header--title">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="26"
-                height="28"
-                fill="none"
-              >
-                <path
-                  fill="#d3468f"
-                  d="M19.494 1.915a2.583 2.583 0 0 0-4.99 1.338L20.52 25.71a2.583 2.583 0 0 0 4.99-1.337zM13.327 14.254l.72 2.932 2.931.72c.585.143.585.974 0 1.118l-2.931.72-.72 2.932c-.143.584-.975.584-1.119 0l-.72-2.932-2.931-.72c-.584-.143-.584-.974 0-1.118l2.932-.72.72-2.932c.143-.584.974-.584 1.118 0M.089 24.446a2.583 2.583 0 1 0 4.99 1.337l6.018-22.457a2.583 2.583 0 1 0-4.99-1.338z"
-                />
-              </svg>
-              <b>Dateis</b>
-            </a>
-          </div>
-          <div class="header__burger">
-            <span></span>
-          </div>
+        <div class="container">
+            <div class="header__inner">
+                <div class="header__logo">
+                    <a href="/" class="header--title">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="28" fill="none">
+                            <path fill="#d3468f"
+                                d="M19.494 1.915a2.583 2.583 0 0 0-4.99 1.338L20.52 25.71a2.583 2.583 0 0 0 4.99-1.337zM13.327 14.254l.72 2.932 2.931.72c.585.143.585.974 0 1.118l-2.931.72-.72 2.932c-.143.584-.975.584-1.119 0l-.72-2.932-2.931-.72c-.584-.143-.584-.974 0-1.118l2.932-.72.72-2.932c.143-.584.974-.584 1.118 0M.089 24.446a2.583 2.583 0 1 0 4.99 1.337l6.018-22.457a2.583 2.583 0 1 0-4.99-1.338z" />
+                        </svg>
+                        <b>Dateis</b>
+                    </a>
+                </div>
+                <div class="header__burger">
+                    <span></span>
+                </div>
+            </div>
         </div>
-      </div>
     </header>
 
     <main>
-      <form class="search--form" action="/search" method="get" role="search">
-        <label class="search--wrapper" id="searchWrapper">
-          <input
-            type="search"
-            name="q"
-            placeholder="Search"
-            autocomplete="off"
-            class="search--input"
-            id="searchInput"
-          />
-          <svg
-            class="search--icon"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 27 27"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="24" y1="24" x2="16.65" y2="16.65"></line>
-          </svg>
-        </label>
-      </form>
+        <form class="search--form" action="/search" method="get" role="search">
+            <label class="search--wrapper" id="searchWrapper">
+                <input type="search" name="q" placeholder="Search" autocomplete="off" class="search--input"
+                    id="searchInput" />
+                <svg class="search--icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 27" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="24" y1="24" x2="16.65" y2="16.65"></line>
+                </svg>
+            </label>
+        </form>
 
-      <nav class="tags-nav" aria-label="Search categories">
-        <ul class="tags-list">
-          <li class="tags-item"><a href="#" class="tag-link">Guide</a></li>
-          <li class="tags-item"><a href="#" class="tag-link">Comments</a></li>
-          <li class="tags-item"><a href="#" class="tag-link">News</a></li>
-          <li class="tags-item"><a href="#" class="tag-link">News</a></li>
-          <li class="tags-item"><a href="#" class="tag-link">News</a></li>
-        </ul>
-      </nav>
+        <nav class="tags-nav" aria-label="Search categories">
+            <ul class="tags-list">
+                <li class="tags-item"><a href="#" class="tag-link">Guide</a></li>
+                <li class="tags-item"><a href="#" class="tag-link">Comments</a></li>
+                <li class="tags-item"><a href="#" class="tag-link">News</a></li>
+                <li class="tags-item"><a href="#" class="tag-link">News</a></li>
+                <li class="tags-item"><a href="#" class="tag-link">News</a></li>
+            </ul>
+        </nav>
 
-      <div class="blog-section">
-        <div class="blog--container">
-          <article class="blog-card">
-            <a href="#" class="blog-card__image-link">
-              <img
-                src="img/blog--img.png"
-                alt="Article preview Title blog"
-                class="blog-card__image"
-                loading="lazy"
-              />
-            </a>
-            <div class="blog-card__content">
-              <h1 class="blog-card__title"><a href="#">Title blog</a></h1>
-              <p class="blog-card__text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <div class="blog-card__meta">
-                <span class="blog-card__time">Reading time 10 min</span>
-                <time datetime="2026-07-20" class="blog-card__date"
-                  >20.07.2026</time
-                >
-              </div>
+        <div class="blog-section">
+            <div class="blog--container">
+                <article class="blog-card">
+                    <a href="#" class="blog-card__image-link">
+                        <img src="img/blog--img.png" alt="Article preview Title blog" class="blog-card__image"
+                            loading="lazy" />
+                    </a>
+                    <div class="blog-card__content">
+                        <h1 class="blog-card__title"><a href="#">Title blog</a></h1>
+                        <p class="blog-card__text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </p>
+                        <div class="blog-card__meta">
+                            <span class="blog-card__time">Reading time 10 min</span>
+                            <time datetime="2026-07-20" class="blog-card__date">20.07.2026</time>
+                        </div>
+                    </div>
+                </article>
             </div>
-          </article>
-        </div>
 
-        <div class="blog--container">
-          <article class="blog-card">
-            <a href="#" class="blog-card__image-link">
-              <img
-                src="img/blog--img.png"
-                alt="Article preview Title blog"
-                class="blog-card__image"
-                loading="lazy"
-              />
-            </a>
-            <div class="blog-card__content">
-              <h2 class="blog-card__title"><a href="#">Title blog</a></h2>
-              <p class="blog-card__text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <div class="blog-card__meta">
-                <span class="blog-card__time">Reading time 10 min</span>
-                <time datetime="2026-07-20" class="blog-card__date"
-                  >20.07.2026</time
-                >
-              </div>
+            <div class="blog--container">
+                <article class="blog-card">
+                    <a href="#" class="blog-card__image-link">
+                        <img src="img/blog--img.png" alt="Article preview Title blog" class="blog-card__image"
+                            loading="lazy" />
+                    </a>
+                    <div class="blog-card__content">
+                        <h2 class="blog-card__title"><a href="#">Title blog</a></h2>
+                        <p class="blog-card__text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </p>
+                        <div class="blog-card__meta">
+                            <span class="blog-card__time">Reading time 10 min</span>
+                            <time datetime="2026-07-20" class="blog-card__date">20.07.2026</time>
+                        </div>
+                    </div>
+                </article>
             </div>
-          </article>
         </div>
-      </div>
     </main>
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const tags = document.querySelectorAll(".tag-link");
+        document.addEventListener("DOMContentLoaded", function () {
+            const tags = document.querySelectorAll(".tag-link");
 
-        tags.forEach((tag) => {
-          tag.addEventListener("click", function (event) {
-            event.preventDefault();
-            tags.forEach((t) => t.classList.remove("tag-link--active"));
-            this.classList.add("tag-link--active");
-          });
-        });
+            tags.forEach((tag) => {
+                tag.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    tags.forEach((t) => t.classList.remove("tag-link--active"));
+                    this.classList.add("tag-link--active");
+                });
+            });
 
-        const searchWrapper = document.getElementById("searchWrapper");
-        const searchInput = document.getElementById("searchInput");
+            const searchWrapper = document.getElementById("searchWrapper");
+            const searchInput = document.getElementById("searchInput");
 
-        if (searchWrapper && searchInput) {
-          function updateSearchState() {
-            const hasText = searchInput.value.trim().length > 0;
-            if (hasText) {
-              searchWrapper.classList.add("has-text");
-            } else {
-              searchWrapper.classList.remove("has-text");
+            if (searchWrapper && searchInput) {
+                function updateSearchState() {
+                    const hasText = searchInput.value.trim().length > 0;
+                    if (hasText) {
+                        searchWrapper.classList.add("has-text");
+                    } else {
+                        searchWrapper.classList.remove("has-text");
+                    }
+                }
+
+                searchInput.addEventListener("input", updateSearchState);
+                updateSearchState();
+                window.addEventListener("pageshow", updateSearchState);
             }
-          }
-
-          searchInput.addEventListener("input", updateSearchState);
-          updateSearchState();
-          window.addEventListener("pageshow", updateSearchState);
-        }
-      });
+        });
     </script>
-  </body>
+</body>
+
 </html>
-```
