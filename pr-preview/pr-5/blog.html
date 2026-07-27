@@ -107,9 +107,7 @@
         display: flex;
         padding: 0 20px;
         position: relative;
-        transition:
-          background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-          border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.2s ease;
         will-change: background-color, border-color;
       }
 
@@ -121,10 +119,17 @@
       }
 
       @media (hover: none) {
-        .search--wrapper:hover {
+        .search--wrapper:active {
           background-color: #d8d8d8;
-          border: 1px solid transparent;
+          border: 1px solid #d8d8d8;
         }
+      }
+
+      .search--wrapper.has-text,
+      .search--wrapper.has-text:focus-within {
+        background-color: var(--third) !important;
+        border-color: var(--primary) !important;
+        color: var(--primary) !important;
       }
 
       .search--wrapper:focus-within {
@@ -279,7 +284,6 @@
       .blog-card__time,
       .blog-card__date {
         color: color-mix(in srgb, var(--alternate-0) 50%, transparent);
-
         font-size: 0.875rem;
       }
     </style>
@@ -314,13 +318,14 @@
 
     <main>
       <form class="search--form" action="/search" method="get" role="search">
-        <label class="search--wrapper">
+        <label class="search--wrapper" id="searchWrapper">
           <input
             type="search"
             name="q"
             placeholder="Search"
             autocomplete="off"
             class="search--input"
+            id="searchInput"
           />
           <svg
             class="search--icon"
@@ -411,6 +416,24 @@
             this.classList.add("tag-link--active");
           });
         });
+
+        const searchWrapper = document.getElementById("searchWrapper");
+        const searchInput = document.getElementById("searchInput");
+
+        if (searchWrapper && searchInput) {
+          function updateSearchState() {
+            const hasText = searchInput.value.trim().length > 0;
+            if (hasText) {
+              searchWrapper.classList.add("has-text");
+            } else {
+              searchWrapper.classList.remove("has-text");
+            }
+          }
+
+          searchInput.addEventListener("input", updateSearchState);
+          updateSearchState();
+          window.addEventListener("pageshow", updateSearchState);
+        }
       });
     </script>
   </body>
