@@ -113,9 +113,18 @@
         will-change: background-color, border-color;
       }
 
-      .search--wrapper:hover {
-        background-color: #d8d8d8;
-        border: 1px solid #d8d8d8;
+      @media (hover: hover) {
+        .search--wrapper:hover {
+          background-color: #d8d8d8;
+          border: 1px solid #d8d8d8;
+        }
+      }
+
+      @media (hover: none) {
+        .search--wrapper:hover {
+          background-color: #d8d8d8;
+          border: 1px solid transparent;
+        }
       }
 
       .search--wrapper:focus-within {
