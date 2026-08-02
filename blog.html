@@ -118,13 +118,6 @@
         }
       }
 
-      @media (hover: none) {
-        .search--wrapper:active {
-          background-color: #d8d8d8;
-          border: 1px solid #d8d8d8;
-        }
-      }
-
       .search--wrapper.active,
       .search--wrapper:focus-within {
         background-color: var(--third);
@@ -169,6 +162,8 @@
         height: 22px;
         margin-left: 8px;
         flex-shrink: 0;
+        cursor: pointer;
+        z-index: 10;
       }
 
       .search--clear::before,
@@ -189,11 +184,6 @@
 
       .search--clear::after {
         transform: translate(-50%, -50%) rotate(-45deg);
-      }
-
-      .search--clear:hover::before,
-      .search--clear:hover::after {
-        opacity: 0.6;
       }
 
       .search--wrapper.active .search--icon,
@@ -493,10 +483,33 @@
           window.addEventListener("pageshow", updateSearchState);
 
           if (clearBtn) {
-            clearBtn.addEventListener("click", function () {
+            clearBtn.addEventListener("mousedown", function (e) {
+              e.preventDefault();
+              e.stopPropagation();
+            });
+            clearBtn.addEventListener("click", function (e) {
+              e.preventDefault();
+              e.stopPropagation();
+              searchWrapper.classList.remove("active");
+              searchWrapper.classList.remove("has-text");
               searchInput.value = "";
-              updateSearchState();
-              searchInput.focus();
+              searchInput.blur();
+              searchWrapper.style.backgroundColor = "";
+              searchWrapper.style.borderColor = "";
+            });
+            clearBtn.addEventListener("touchstart", function (e) {
+              e.preventDefault();
+              e.stopPropagation();
+            });
+            clearBtn.addEventListener("touchend", function (e) {
+              e.preventDefault();
+              e.stopPropagation();
+              searchWrapper.classList.remove("active");
+              searchWrapper.classList.remove("has-text");
+              searchInput.value = "";
+              searchInput.blur();
+              searchWrapper.style.backgroundColor = "";
+              searchWrapper.style.borderColor = "";
             });
           }
         }
