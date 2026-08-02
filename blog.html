@@ -125,16 +125,14 @@
         }
       }
 
-      .search--wrapper.has-text,
-      .search--wrapper.has-text:focus-within {
-        background-color: var(--third) !important;
-        border-color: var(--primary) !important;
-        color: var(--primary) !important;
-      }
-
+      .search--wrapper.active,
       .search--wrapper:focus-within {
         background-color: var(--third);
         border-color: var(--primary);
+      }
+
+      .search--wrapper.has-text {
+        border-color: var(--primary) !important;
       }
 
       .search--input {
@@ -151,6 +149,7 @@
         color: color-mix(in srgb, var(--alternate-0) 71.5%, transparent);
       }
 
+      .search--wrapper.active .search--input::placeholder,
       .search--wrapper:focus-within .search--input::placeholder {
         opacity: 0;
       }
@@ -160,6 +159,53 @@
         flex-shrink: 0;
         height: 22px;
         width: 22px;
+        transition: all 0.2s ease;
+      }
+
+      .search--clear {
+        display: none;
+        position: relative;
+        width: 22px;
+        height: 22px;
+        margin-left: 8px;
+        flex-shrink: 0;
+      }
+
+      .search--clear::before,
+      .search--clear::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 22px;
+        height: 2px;
+        background-color: #000000;
+        border-radius: 1px;
+      }
+
+      .search--clear::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+
+      .search--clear::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+
+      .search--clear:hover::before,
+      .search--clear:hover::after {
+        opacity: 0.6;
+      }
+
+      .search--wrapper.active .search--icon,
+      .search--wrapper:focus-within .search--icon,
+      .search--wrapper.has-text .search--icon {
+        display: none;
+      }
+
+      .search--wrapper.active .search--clear,
+      .search--wrapper:focus-within .search--clear,
+      .search--wrapper.has-text .search--clear {
+        display: block !important;
       }
 
       .tag-link--active {
@@ -340,6 +386,7 @@
             <circle cx="11" cy="11" r="8"></circle>
             <line x1="24" y1="24" x2="16.65" y2="16.65"></line>
           </svg>
+          <span class="search--clear"></span>
         </label>
       </form>
 
@@ -419,20 +466,39 @@
 
         const searchWrapper = document.getElementById("searchWrapper");
         const searchInput = document.getElementById("searchInput");
+        const clearBtn = document.querySelector(".search--clear");
 
         if (searchWrapper && searchInput) {
           function updateSearchState() {
             const hasText = searchInput.value.trim().length > 0;
             if (hasText) {
               searchWrapper.classList.add("has-text");
+              searchWrapper.classList.add("active");
             } else {
               searchWrapper.classList.remove("has-text");
+              searchWrapper.classList.remove("active");
             }
           }
 
           searchInput.addEventListener("input", updateSearchState);
+          searchInput.addEventListener("focus", function () {
+            searchWrapper.classList.add("active");
+          });
+          searchInput.addEventListener("blur", function () {
+            if (searchInput.value.trim().length === 0) {
+              searchWrapper.classList.remove("active");
+            }
+          });
           updateSearchState();
           window.addEventListener("pageshow", updateSearchState);
+
+          if (clearBtn) {
+            clearBtn.addEventListener("click", function () {
+              searchInput.value = "";
+              updateSearchState();
+              searchInput.focus();
+            });
+          }
         }
       });
     </script>
