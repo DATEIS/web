@@ -250,21 +250,11 @@
         display: none;
       }
 
-      .blog--container {
-        display: flex;
-        flex-direction: column;
-        margin: 15px 20px 0px 20px;
-        max-width: calc(100% - 40px);
-        width: 100%;
-      }
-
-      .blog--container:first-child {
-        margin: 0px 20px 0px 20px;
-      }
-
-      .blog-section {
-        margin-top: 30px;
-        width: 100%;
+      .blog-card-link {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
       }
 
       .blog-card {
@@ -273,13 +263,10 @@
         display: flex;
         flex-direction: column;
         overflow: hidden;
+        transition: all 0.2s ease;
       }
 
-      .blog-card__content {
-        padding: 20px 20px 20px 24px;
-      }
-
-      .blog-card__image-link {
+      .blog-card__image-wrapper {
         display: block;
         width: 100%;
       }
@@ -290,6 +277,10 @@
         display: block;
         object-fit: cover;
         width: 100%;
+      }
+
+      .blog-card__content {
+        padding: 20px 20px 20px 24px;
       }
 
       .blog-card__meta {
@@ -310,17 +301,30 @@
         font-size: 1.25rem;
         font-weight: 700;
         margin: 0;
-      }
-
-      .blog-card__title a {
         color: var(--alternate-0);
-        text-decoration: none;
       }
 
       .blog-card__time,
       .blog-card__date {
         color: color-mix(in srgb, var(--alternate-0) 50%, transparent);
         font-size: 0.875rem;
+      }
+
+      .blog--container {
+        display: flex;
+        flex-direction: column;
+        margin: 15px 20px 0px 20px;
+        max-width: calc(100% - 40px);
+        width: 100%;
+      }
+
+      .blog--container:first-child {
+        margin: 0px 20px 0px 20px;
+      }
+
+      .blog-section {
+        margin-top: 30px;
+        width: 100%;
       }
     </style>
   </head>
@@ -392,53 +396,57 @@
 
       <div class="blog-section">
         <div class="blog--container">
-          <article class="blog-card">
-            <a href="#" class="blog-card__image-link">
-              <img
-                src="img/blog--img.png"
-                alt="Article preview Title blog"
-                class="blog-card__image"
-                loading="lazy"
-              />
-            </a>
-            <div class="blog-card__content">
-              <h1 class="blog-card__title"><a href="#">Title blog</a></h1>
-              <p class="blog-card__text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <div class="blog-card__meta">
-                <span class="blog-card__time">Reading time 10 min</span>
-                <time datetime="2026-07-20" class="blog-card__date"
-                  >20.07.2026</time
-                >
+          <a href="empty-page.html" class="blog-card-link" target="_blank">
+            <article class="blog-card">
+              <div class="blog-card__image-wrapper">
+                <img
+                  src="img/blog--img.png"
+                  alt="Article preview Title blog"
+                  class="blog-card__image"
+                  loading="lazy"
+                />
               </div>
-            </div>
-          </article>
+              <div class="blog-card__content">
+                <h1 class="blog-card__title">Title blog</h1>
+                <p class="blog-card__text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+                <div class="blog-card__meta">
+                  <span class="blog-card__time">Reading time 10 min</span>
+                  <time datetime="2026-07-20" class="blog-card__date"
+                    >20.07.2026</time
+                  >
+                </div>
+              </div>
+            </article>
+          </a>
         </div>
 
         <div class="blog--container">
-          <article class="blog-card">
-            <a href="#" class="blog-card__image-link">
-              <img
-                src="img/blog--img.png"
-                alt="Article preview Title blog"
-                class="blog-card__image"
-                loading="lazy"
-              />
-            </a>
-            <div class="blog-card__content">
-              <h2 class="blog-card__title"><a href="#">Title blog</a></h2>
-              <p class="blog-card__text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <div class="blog-card__meta">
-                <span class="blog-card__time">Reading time 10 min</span>
-                <time datetime="2026-07-20" class="blog-card__date"
-                  >20.07.2026</time
-                >
+          <a href="empty-page.html" class="blog-card-link" target="_blank">
+            <article class="blog-card">
+              <div class="blog-card__image-wrapper">
+                <img
+                  src="img/blog--img.png"
+                  alt="Article preview Title blog"
+                  class="blog-card__image"
+                  loading="lazy"
+                />
               </div>
-            </div>
-          </article>
+              <div class="blog-card__content">
+                <h2 class="blog-card__title">Title blog</h2>
+                <p class="blog-card__text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+                <div class="blog-card__meta">
+                  <span class="blog-card__time">Reading time 10 min</span>
+                  <time datetime="2026-07-20" class="blog-card__date"
+                    >20.07.2026</time
+                  >
+                </div>
+              </div>
+            </article>
+          </a>
         </div>
       </div>
     </main>
