@@ -88,9 +88,11 @@ span.disappearing svg {
   0% {
     transform: translateY(0px);
   }
+
   37.5% {
     transform: translateY(7px);
   }
+
   75% {
     transform: translateY(0px);
   }
