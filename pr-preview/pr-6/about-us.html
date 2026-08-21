@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DATEIS — New Generation Dating Service Based on Interests</title>
+    <meta
+      name="description"
+      content="Find each other through common hobbies and interests, not just photos. Dateis is a new generation dating service."
+    />
+    <link href="styles/style.css" rel="stylesheet" />
+
+    <style>
+      *,
+      *:after,
+      *:before {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        overflow-x: hidden;
+      }
+
+      header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+      }
+
+      .container {
+        margin: 0 auto;
+        width: 100%;
+        max-width: calc(100% - 40px);
+      }
+
+      .header__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 25px;
+        padding-bottom: 25px;
+      }
+
+      p,
+      a {
+        margin: 0;
+        text-decoration: none;
+      }
+
+      a.header--title {
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        font-weight: 800;
+        font-size: 2rem;
+        text-transform: uppercase;
+      }
+
+      .header__burger {
+        background: var(--third);
+        width: 42px;
+        height: 42px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .header__burger span {
+        display: block;
+        width: 18px;
+        height: 2px;
+        border-radius: 5px;
+        background: var(--alternate);
+        position: relative;
+      }
+
+      .header__burger span:after {
+        position: absolute;
+        content: "";
+        top: -6px;
+        width: 18px;
+        height: 2px;
+        border-radius: 5px;
+        background: var(--alternate);
+      }
+
+      .header__burger span:before {
+        position: absolute;
+        content: "";
+        top: 6px;
+        width: 18px;
+        height: 2px;
+        border-radius: 5px;
+        background: var(--alternate);
+      }
+
+      :root {
+        --gradient-card-1: linear-gradient(135deg, #d3468f 0%, #6a2348 100%);
+        --gradient-card-2: linear-gradient(135deg, #e457a0 0%, #7b2e56 100%);
+      }
+
+      body {
+        color: var(--alternate-0);
+        background-color: var(--bg-color);
+        line-height: 1.4;
+      }
+
+      .hero {
+        padding: 5.625rem 1.25rem 2.5rem 1.25rem;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .hero__title {
+        font-size: 4rem;
+        font-weight: 800;
+        color: var(--primary);
+        line-height: 0.95;
+        margin: 0 0 1.5rem 0;
+        letter-spacing: -0.02em;
+      }
+
+      .hero__title span {
+        color: var(--alternate-0);
+      }
+
+      .hero__subtitle {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--alternate-0);
+        line-height: 1.25;
+        margin: 0 0 1rem 0;
+      }
+
+      .hero__description {
+        font-size: 0.875rem;
+        font-weight: 400;
+        color: var(--alternate-0-70);
+        line-height: 1.45;
+        margin: 0 0 2rem 0;
+      }
+
+      .hero__button {
+        position: relative;
+        background-color: var(--alternate);
+        color: var(--bg-color);
+        border: none;
+        border-radius: 1.875rem;
+        padding: 1.125rem 2rem;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+        width: 100%;
+        overflow: hidden;
+        z-index: 1;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        transition:
+          background-color 0.2s,
+          color 0.2s;
+      }
+
+      .hero__button-text {
+        transition: opacity 0.15s;
+        z-index: 2;
+      }
+
+      .hero__button::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: conic-gradient(
+          from 0deg,
+          transparent 0deg,
+          transparent 180deg,
+          var(--primary) 270deg,
+          transparent 360deg
+        );
+        z-index: -2;
+        animation:
+          borderRotate 2.5s linear forwards,
+          borderFade 0.4s linear 2.5s forwards;
+      }
+
+      .hero__button::after {
+        content: "";
+        position: absolute;
+        inset: 2px;
+        background: var(--alternate);
+        border-radius: 1.75rem;
+        z-index: -1;
+        transition:
+          background-color 0.2s,
+          opacity 0.2s;
+      }
+
+      @keyframes borderRotate {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes borderFade {
+        100% {
+          opacity: 0;
+        }
+      }
+
+      @media (hover: hover) {
+        .hero__button:hover {
+          background-color: var(--alternate-0-70);
+        }
+
+        .hero__button:hover::after {
+          background-color: var(--alternate-0-70);
+        }
+      }
+
+      .hero__button:active .hero__button-text {
+        opacity: 0.7;
+      }
+
+      .hero__button:active::after {
+        opacity: 0.7;
+      }
+
+      .mission {
+        padding: 1.5rem 0 2rem 0;
+      }
+
+      .mission__title {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--alternate-0);
+        margin: 0 0 0.25rem 1.25rem;
+      }
+
+      .mission__subtitle {
+        font-size: 0.875rem;
+        font-weight: 400;
+        color: var(--alternate-0-70);
+        margin: 0 0 1.25rem 1.25rem;
+      }
+
+      .mission__slider {
+        margin-left: 20px;
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        overflow-x: auto;
+        padding-bottom: 1.5rem;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+      }
+
+      .mission__slider::-webkit-scrollbar {
+        display: none;
+      }
+
+      .slider-spacer {
+        flex: 0 0 20px;
+      }
+
+      .mission__card {
+        scroll-snap-align: start;
+        flex: 0 0 236px;
+        height: 213px;
+        background: var(--gradient-card-1);
+        border-radius: 12px;
+        padding: 25px 18px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+
+      .mission__card:nth-child(3) {
+        background: var(--gradient-card-2);
+      }
+
+      .mission__card-text {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: var(--bg-color);
+        line-height: 1.35;
+        margin: 0;
+        z-index: 2;
+        max-width: 85%;
+        letter-spacing: -0.01em;
+      }
+
+      .mission__card-number {
+        position: absolute;
+        top: 47%;
+        right: 0px;
+        transform: translateY(-42%);
+        font-size: 8rem;
+        font-weight: 800;
+        color: rgba(255, 255, 255, 0.08);
+        line-height: 1;
+        user-select: none;
+      }
+
+      .mission__footer {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--alternate-0-70);
+        text-align: center;
+        margin: 0 0 2.5rem 0;
+        letter-spacing: 0.02em;
+      }
+
+      .uniqueness {
+        padding: 0 1.25rem 2.5rem 1.25rem;
+      }
+
+      .uniqueness__title {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--alternate-0);
+        margin: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <div class="header__inner">
+          <div class="header__logo">
+            <a href="/" class="header--title">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="26"
+                height="28"
+                fill="none"
+              >
+                <path
+                  fill="#d3468f"
+                  d="M19.494 1.915a2.583 2.583 0 0 0-4.99 1.338L20.52 25.71a2.583 2.583 0 0 0 4.99-1.337zM13.327 14.254l.72 2.932 2.931.72c.585.143.585.974 0 1.118l-2.931.72-.72 2.932c-.143.584-.975.584-1.119 0l-.72-2.932-2.931-.72c-.584-.143-.584-.974 0-1.118l2.932-.72.72-2.932c.143-.584.974-.584 1.118 0M.089 24.446a2.583 2.583 0 1 0 4.99 1.337l6.018-22.457a2.583 2.583 0 1 0-4.99-1.338z"
+                />
+              </svg>
+              <b>Dateis</b>
+            </a>
+          </div>
+
+          <div class="header__burger">
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h1 class="hero__title">DATEIS<br /><span>US</span></h1>
+        <h2 class="hero__subtitle">
+          We create acquaintances that start with interests.
+        </h2>
+        <p class="hero__description">
+          Dateis is a new generation dating service where people find each other
+          through common hobbies, not just photos.
+        </p>
+        <button class="hero__button">
+          <span class="hero__button-text">Try DATEIS</span>
+        </button>
+      </section>
+
+      <section class="mission">
+        <h2 class="mission__title">Our mission</h2>
+        <p class="mission__subtitle">Maybe lore</p>
+
+        <div class="mission__slider">
+          <div class="slider-spacer"></div>
+          <div class="mission__card">
+            <p class="mission__card-text">
+              We want to make dating more honest, easier and safer. Instead of
+              endless swipe,
+            </p>
+            <span class="mission__card-number">1</span>
+          </div>
+          <div class="mission__card">
+            <p class="mission__card-text">
+              We want to make dating more honest, easier and safer. Instead of
+              endless swipe,
+            </p>
+            <span class="mission__card-number">2</span>
+          </div>
+        </div>
+
+        <p class="mission__footer">/// You will find your match! ///</p>
+      </section>
+
+      <section class="uniqueness">
+        <h2 class="uniqueness__title">Our uniqueness</h2>
+      </section>
+    </main>
+  </body>
+</html>
